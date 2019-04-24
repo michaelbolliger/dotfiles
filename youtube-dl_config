@@ -1,0 +1,10 @@
+# Lines starting with # are comments
+
+# Inore errors i.e. while downloading playlists
+-i
+
+# Download only .mp4 format
+-f bestvideo[ext=mp4]+bestaudio[ext=m4a]
+
+# Save all videos under Downloads directory in your home directory
+-o ~/Downloads/%(uploader)s/%(title)s.%(ext)s
