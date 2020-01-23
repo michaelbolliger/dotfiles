@@ -98,6 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+
 alias bru="brew update; brew upgrade; brew cask upgrade; brew cleanup"
 alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 alias arestart="sudo fdesetup authrestart"
