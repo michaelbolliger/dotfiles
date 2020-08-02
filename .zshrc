@@ -103,11 +103,12 @@ bindkey "[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
-alias bru="brew update; brew upgrade; brew cask upgrade; brew cleanup"
+alias bru="brew update; brew upgrade; brew cleanup"
 alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
-alias arestart="sudo fdesetup authrestart"
+alias refresh="upgrade_oh_my_zsh; bru; lpreset"
+alias arestart="sudo fdesetup authrestart -delayminutes -1"
 alias pdfex="exiftool -Title="" -Creator="" -Producer="""
+alias ytmp4="youtube-dl -i -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
-export PATH="/usr/local/sbin:$PATH"
