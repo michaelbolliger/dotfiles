@@ -112,3 +112,4 @@ alias ytmp4="youtube-dl -i -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
+export PATH="/usr/local/sbin:$PATH"
