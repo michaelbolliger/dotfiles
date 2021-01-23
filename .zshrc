@@ -105,7 +105,7 @@ bindkey "^[e" end-of-line
 
 alias bru="brew update; brew upgrade; brew cleanup"
 alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
-alias refresh="bru; lpreset"
+alias refresh="omz update; bru; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
 alias pdfex="exiftool -Title="" -Creator="" -Producer="""
 alias ytmp4="youtube-dl -i -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
