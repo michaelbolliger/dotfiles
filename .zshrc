@@ -108,7 +108,7 @@ alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall 
 alias refresh="topgrade; brew cleanup; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
 alias pdfex="exiftool -Title="" -Creator="" -Producer="""
-alias ytmp4="youtube-dl -i -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
+alias ytmp4="yt-dlp -i -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
 alias diskspeedtest="time dd if=/dev/zero bs=1024k of=tstfile count=4096; dd if=tstfile bs=1024k of=/dev/null count=4096; rm tstfile"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
