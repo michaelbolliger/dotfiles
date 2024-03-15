@@ -14,6 +14,8 @@ brew "git"
 brew "hugo"
 brew "iperf3"
 brew "lazydocker"
+brew "mailsy"
+brew "mas"
 brew "neofetch"
 brew "rsync"
 brew "smartmontools"
@@ -84,6 +86,18 @@ cask "visual-studio-code"
 cask "vorta"
 cask "wacom-tablet"
 cask "waves-central"
+mas "1Blocker", id: 1365531024
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "Apple Configurator", id: 1037126344
+mas "AutoMounter", id: 1160435653
+mas "CapCut", id: 1500855883
+mas "Hush", id: 1544743900
+mas "Magnet", id: 441258766
+mas "MediaInfo", id: 510620098
+mas "Podlive", id: 1210411572
+mas "TestFlight", id: 899247664
+mas "WireGuard", id: 1451685025
 vscode "esbenp.prettier-vscode"
 vscode "ms-python.black-formatter"
 vscode "ms-python.debugpy"
