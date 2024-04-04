@@ -97,6 +97,7 @@ cask "waves-central"
 cask "yubico-yubikey-manager"
 mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
+mas "AJA System Test Lite", id: 1092006274
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator", id: 1037126344
 mas "AutoMounter", id: 1160435653
