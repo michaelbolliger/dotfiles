@@ -28,6 +28,7 @@ brew "tmux"
 brew "tree"
 brew "video-compare"
 brew "vim"
+brew "wakeonlan"
 brew "wimlib"
 brew "yt-dlp"
 brew "zsh"
@@ -120,7 +121,9 @@ mas "CapCut", id: 1500855883
 mas "Hush", id: 1544743900
 mas "Magnet", id: 441258766
 mas "MediaInfo", id: 510620098
+mas "Paperparrot", id: 1663665267
 mas "Podlive", id: 1210411572
+mas "Strongbox", id: 897283731
 mas "TestFlight", id: 899247664
 mas "WireGuard", id: 1451685025
 vscode "esbenp.prettier-vscode"
