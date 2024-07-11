@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 #bindkey "^[a" beginning-of-line
 #bindkey "^[e" end-of-line
 
-alias bru="brew update; brew upgrade; brew cleanup"
+alias bru="brew update; brew upgrade; brew cleanup --prune=all"
 alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
