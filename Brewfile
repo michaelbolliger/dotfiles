@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "ottomatic-io/video"
@@ -15,12 +14,12 @@ brew "openjpeg"
 brew "ffmpeg"
 brew "git"
 brew "gnu-tar"
+brew "htop"
 brew "hugo"
 brew "iperf3"
 brew "lazydocker"
 brew "mailsy"
 brew "mas"
-brew "neofetch"
 brew "openssh"
 brew "rsync"
 brew "smartmontools"
@@ -120,20 +119,11 @@ cask "warp"
 cask "waves-central"
 cask "whisky"
 cask "yubico-yubikey-manager"
-mas "1Blocker", id: 1365531024
-mas "1Password for Safari", id: 1569813296
-mas "AJA System Test Lite", id: 1092006274
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator", id: 1037126344
 mas "AutoMounter", id: 1160435653
-mas "CapCut", id: 1500855883
-mas "Hush", id: 1544743900
+mas "HP Smart", id: 1474276998
 mas "Magnet", id: 441258766
-mas "MediaInfo", id: 510620098
-mas "Paperparrot", id: 1663665267
-mas "Podlive", id: 1210411572
-mas "Strongbox", id: 897283731
-mas "TestFlight", id: 899247664
 mas "WireGuard", id: 1451685025
 vscode "esbenp.prettier-vscode"
 vscode "ms-python.black-formatter"
