@@ -15,6 +15,7 @@ brew "openjpeg"
 brew "ffmpeg"
 brew "git"
 brew "gnu-tar"
+brew "helix"
 brew "htop"
 brew "hugo"
 brew "iperf3"
@@ -116,6 +117,13 @@ cask "wacom-tablet"
 cask "warp"
 cask "whisky"
 cask "yubico-yubikey-manager"
+cask "zed"
+mas "Amphetamine", id: 937984704
+mas "Apple Configurator", id: 1037126344
+mas "AutoMounter", id: 1160435653
+mas "Magnet", id: 441258766
+mas "MediaInfo", id: 510620098
+mas "WireGuard", id: 1451685025
 vscode "esbenp.prettier-vscode"
 vscode "ms-python.black-formatter"
 vscode "ms-python.debugpy"
