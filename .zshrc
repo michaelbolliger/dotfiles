@@ -1,17 +1,18 @@
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
-plugins=(
-  git
-  colorize
-  brew
-  macos
-)
+#plugins=(
+#  git
+#  colorize
+#  brew
+#  macos
+#)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 #bindkey "[D" backward-word
 #bindkey "[C" forward-word
@@ -28,6 +29,7 @@ alias diskspeedtest="time dd if=/dev/zero bs=1024k of=tstfile count=4096; dd if=
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf /Volumes/storage/Fitting\ In\ Project\ Backup/"$(date '+%y%m%d-%H%M')_fitting_in_avid_project_backup.tar.xz" /Volumes/FIT_Edit1/01\ PROJECT/Avid\ Projekt/FITTING\ IN"
 alias backup="rsync -achP --cc=xxh64 --delete --exclude=.DS_Store"
+alias backupfast="rsync -auhP --delete --exclude=.DS_Store"
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
@@ -36,9 +38,16 @@ export PATH=/opt/homebrew/opt/curl/bin:$PATH
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/michael/.zshrc'
 
-autoload -Uz compinit
-compinit
+#autoload -Uz compinit
+#compinit
 # End of lines added by compinstall
+
+  if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+  fi
 
 eval "$(starship init zsh)"
 
