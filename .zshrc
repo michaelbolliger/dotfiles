@@ -1,18 +1,4 @@
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# Path to your oh-my-zsh installation.
-#export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="agnoster"
-
-#plugins=(
-#  git
-#  colorize
-#  brew
-#  macos
-#)
-
-#source $ZSH/oh-my-zsh.sh
 
 #bindkey "[D" backward-word
 #bindkey "[C" forward-word
@@ -31,23 +17,16 @@ alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf
 alias backup="rsync -achP --cc=xxh64 --delete --exclude=.DS_Store"
 alias backupfast="rsync -auhP --delete --exclude=.DS_Store"
 
+# List directory contents
+alias ls='ls --color'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=/opt/homebrew/opt/curl/bin:$PATH
-
-# The following lines were added by compinstall
-zstyle :compinstall filename '/Users/michael/.zshrc'
-
-#autoload -Uz compinit
-#compinit
-# End of lines added by compinstall
-
-  if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-    autoload -Uz compinit
-    compinit
-  fi
 
 eval "$(starship init zsh)"
 
