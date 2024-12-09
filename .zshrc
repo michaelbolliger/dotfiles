@@ -14,9 +14,9 @@ alias ytmp4="yt-dlp -i -f 'bv[ext=mp4] [vcodec^=avc]+ba[ext=m4a]' -o '%(channel)
 alias diskspeedtest="time dd if=/dev/zero bs=1024k of=tstfile count=4096; dd if=tstfile bs=1024k of=/dev/null count=4096; rm tstfile"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf /Volumes/storage/Fitting\ In\ Project\ Backup/"$(date '+%y%m%d-%H%M')_fitting_in_avid_project_backup.tar.xz" /Volumes/FIT_Edit1/01\ PROJECT/Avid\ Projekt/FITTING\ IN"
-alias backup="rsync -achP --cc=xxh64 --delete --exclude=.DS_Store"
-alias backupfast="rsync -auhP --delete --exclude=.DS_Store"
-alias backupproject="rsync -auhP --delete --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*'}"
+alias backup="rsync -achP --cc=xxh64 --delete --delete-excluded --exclude=.DS_Store"
+alias backupfast="rsync -auhP --delete --delete-excluded --exclude=.DS_Store"
+alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*','*Auto-Save*'}"
 
 # List directory contents
 alias ls='ls --color'
