@@ -56,7 +56,6 @@ cask "adobe-creative-cloud"
 cask "alacritty"
 cask "appcleaner"
 cask "carbon-copy-cloner"
-cask "chatgpt"
 cask "citrix-workspace"
 cask "coconutbattery"
 cask "cryptomator"
@@ -68,8 +67,6 @@ cask "ff-works"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "google-chrome"
-cask "google-drive"
-cask "ibm-aspera-connect"
 cask "iina"
 cask "ilok-license-manager"
 cask "imazing"
@@ -85,7 +82,7 @@ cask "macwhisper"
 cask "maxon"
 cask "mediathekview"
 cask "microsoft-auto-update"
-cask "microsoft-office-businesspro"
+cask "microsoft-teams"
 cask "mist"
 cask "obs"
 cask "obsidian"
@@ -96,9 +93,8 @@ cask "paragon-ntfs"
 cask "parashoot"
 cask "parsec"
 cask "postico"
-cask "proton-pass"
-cask "protonvpn"
 cask "raycast"
+cask "reaper"
 cask "resilio-sync"
 cask "retroarch-metal"
 cask "rsyncui"
@@ -110,7 +106,6 @@ cask "steam"
 cask "syncthing"
 cask "tailscale"
 cask "teamviewer"
-cask "threema"
 cask "time-out"
 cask "transmission"
 cask "transmit"
@@ -121,7 +116,19 @@ cask "warp"
 cask "whisky"
 cask "windows-app"
 cask "yubico-yubikey-manager"
-cask "zed"
+mas "1Blocker", id: 1365531024
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "Apple Configurator", id: 1037126344
+mas "AutoMounter", id: 1160435653
+mas "Hush", id: 1544743900
+mas "Hyperspace", id: 6739505345
+mas "Magnet", id: 441258766
+mas "MediaInfo", id: 510620098
+mas "Strongbox", id: 897283731
+mas "TestFlight", id: 899247664
+mas "Ulysses", id: 1225570693
+mas "WireGuard", id: 1451685025
 vscode "esbenp.prettier-vscode"
 vscode "github.copilot"
 vscode "github.copilot-chat"
