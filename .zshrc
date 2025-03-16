@@ -10,7 +10,7 @@ alias bru="brew update; brew upgrade; brew autoremove; brew cleanup --prune=all"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
-alias pdfex="exiftool -Title="" -Creator="" -Producer="""
+alias pdfex="exiftool -Title="" -Creator="" -Producer="" -Author="""
 alias ytmp4="yt-dlp -i -f 'bv[ext=mp4] [vcodec^=avc]+ba[ext=m4a]' -o '%(channel)s - %(title)s [%(id)s.%(ext)s]'"
 alias diskspeedtest="time dd if=/dev/zero bs=1024k of=tstfile count=4096; dd if=tstfile bs=1024k of=/dev/null count=4096; rm tstfile"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
@@ -32,3 +32,6 @@ export PATH=/opt/homebrew/opt/curl/bin:$PATH
 
 eval "$(starship init zsh)"
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/michael/.lmstudio/bin"
