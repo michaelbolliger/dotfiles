@@ -8,6 +8,7 @@ source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 alias bru="brew update; brew upgrade; brew autoremove; brew cleanup --prune=all"
 #alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
+alias cleardock="defaults write com.apple.dock persistent-apps -array; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
 alias pdfex="exiftool -Title="" -Creator="" -Producer="" -Author="""
