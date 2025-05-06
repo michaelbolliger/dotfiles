@@ -15,6 +15,6 @@ dimensions = { columns = 110, lines = 28 }
 #option_as_alt = "Both"
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "MesloLGSDZ Nerd Font Mono"
 
 size = 19
