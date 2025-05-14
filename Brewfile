@@ -31,6 +31,7 @@ brew "lazygit"
 brew "magic-wormhole"
 brew "mailsy"
 brew "mas"
+brew "ncdu"
 brew "neovim"
 brew "openssh"
 brew "pinentry-mac"
@@ -123,8 +124,11 @@ mas "AutoMounter", id: 1160435653
 mas "Goodnotes", id: 1444383602
 mas "Hush", id: 1544743900
 mas "Hyperspace", id: 6739505345
+mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "MediaInfo", id: 510620098
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Strongbox", id: 897283731
 mas "TestFlight", id: 899247664
 mas "Ulysses", id: 1225570693
