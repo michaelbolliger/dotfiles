@@ -1,3 +1,4 @@
 syntax on
-colorscheme torte
+colorscheme torte 
 set backspace=indent,eol,start
+set encoding=UTF-8
