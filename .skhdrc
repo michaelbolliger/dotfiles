@@ -111,4 +111,5 @@
 # Control Audio Output Device
 ctrl + alt - 1 : SwitchAudioSource -s "Merging RAVENNA/AES67"
 ctrl + alt - 2 : SwitchAudioSource -s "Studio Display Speakers"
-ctrl + alt - 3 : SwitchAudioSource -s "AirPods"
+ctrl + alt - 3 : SwitchAudioSource -s "Michael’s AirPods Pro"
+ctrl + alt - 4 : SwitchAudioSource -s "AirPods old"
