@@ -22,10 +22,8 @@ alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Stor
 
 # List directory contents
 alias ls='ls --color'
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
+alias ll='ls -lh --color'
+alias la='ls -lAh --color'
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
@@ -36,3 +34,6 @@ eval "$(starship init zsh)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/michael/.lmstudio/bin"
+
+# Added by Antigravity
+export PATH="/Users/michael/.antigravity/antigravity/bin:$PATH"
