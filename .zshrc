@@ -18,7 +18,7 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf /Volumes/storage/Fitting\ In\ Project\ Backup/"$(date '+%y%m%d-%H%M')_fitting_in_avid_project_backup.tar.xz" /Volumes/FIT_Edit1/01\ PROJECT/Avid\ Projekt/FITTING\ IN"
 alias backup="rsync -achP --cc=xxh64 --delete --delete-excluded --exclude=.DS_Store"
 alias backupfast="rsync -auhP --delete --delete-excluded --exclude=.DS_Store"
-alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*','*Auto-Save*','.xmp','.mxfindex','.pek'}"
+alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*','*Auto-Save*','*.xmp','*.mxfindex','*.pek','*.prmi'}"
 
 # List directory contents
 alias ls='ls --color'

@@ -1,0 +1,8 @@
+[user]
+	name = Michael Bolliger
+	email = me@michaelbolliger.com 
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+
