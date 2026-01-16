@@ -6,3 +6,5 @@
 [init]
 	defaultBranch = main
 
+[log]
+	showSignature = true
