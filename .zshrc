@@ -1,12 +1,6 @@
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-#bindkey "[D" backward-word
-#bindkey "[C" forward-word
-#bindkey "^[a" beginning-of-line
-#bindkey "^[e" end-of-line
-
 alias bru="brew update; brew upgrade; brew autoremove; brew cleanup --prune=all"
-#alias lpreset="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
 alias cleardock="defaults write com.apple.dock persistent-apps -array; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
@@ -22,7 +16,6 @@ alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Stor
 alias resetuser="echo '== change permissions of user $(id -u) (directory ~) to 700 ==';chmod -R 700 ~ 2>/dev/null;diskutil resetUserPermissions / $(id -u)"
 alias cleands="find ~ -name ".DS_Store" -type f -delete 2>/dev/null"
 
-# List directory contents
 alias ls='ls --color'
 alias ll='ls -lh --color'
 alias la='ls -lAh --color'
@@ -32,10 +25,3 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=/opt/homebrew/opt/curl/bin:$PATH
 
 eval "$(starship init zsh)"
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/michael/.lmstudio/bin"
-
-# Added by Antigravity
-export PATH="/Users/michael/.antigravity/antigravity/bin:$PATH"
