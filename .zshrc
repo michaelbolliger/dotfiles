@@ -19,7 +19,7 @@ alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf
 alias backup="rsync -achP --cc=xxh64 --delete --delete-excluded --exclude=.DS_Store"
 alias backupfast="rsync -auhP --delete --delete-excluded --exclude=.DS_Store"
 alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*','*Auto-Save*','*.xmp','*.mxfindex','*.pek','*.prmi'}"
-alias resetuser="chmod -R 700 ~ 2>/dev/null;diskutil resetUserPermissions / $(id -u)"
+alias resetuser="echo '== change permissions of user $(id -u) (directory ~) to 700 ==';chmod -R 700 ~ 2>/dev/null;diskutil resetUserPermissions / $(id -u)"
 alias cleands="find ~ -name ".DS_Store" -type f -delete 2>/dev/null"
 
 # List directory contents
