@@ -19,6 +19,7 @@ alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf
 alias backup="rsync -achP --cc=xxh64 --delete --delete-excluded --exclude=.DS_Store"
 alias backupfast="rsync -auhP --delete --delete-excluded --exclude=.DS_Store"
 alias backupproject="rsync -auhP --delete --delete-excluded --exclude={'.DS_Store','*_Proxy*','*Proxies*','*Previews*','*Auto-Save*','*.xmp','*.mxfindex','*.pek','*.prmi'}"
+alias resetuserpermissions="diskutil resetUserPermissions / $(id -u)"
 
 # List directory contents
 alias ls='ls --color'
