@@ -23,6 +23,7 @@ alias la='ls -lAh --color'
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=/opt/homebrew/opt/curl/bin:$PATH
+export PATH="/opt/homebrew/opt/ffmpeg-full/bin:$PATH"
 
 eval "$(starship init zsh)"
-export PATH="/opt/homebrew/opt/ffmpeg-full/bin:$PATH"
+
