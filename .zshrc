@@ -20,6 +20,30 @@ alias ls='ls --color'
 alias ll='ls -lh --color'
 alias la='ls -lAh --color'
 
+make_prores() {
+    # Check if a filename was provided
+    if [ -z "$1" ]; then
+        echo "Error: Please provide an input video file."
+        echo "Usage: make_prores <filename>"
+        return 1
+    fi
+
+    # Assign the first argument to the variable 'f'
+    local f="$1"
+
+    # Run the ffmpeg command using the variable
+    ffmpeg -i "$f" \
+        -map_metadata -1 \
+        -vf "scale=3840:2160:flags=lanczos" \
+        -pix_fmt uyvy422 \
+        -c:v prores_videotoolbox \
+        -profile:v 3 \
+        -c:a pcm_s24le \
+        -ac 2 \
+        -ar 48000 \
+        "${f%.*}.mov"
+}
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=/opt/homebrew/opt/curl/bin:$PATH
