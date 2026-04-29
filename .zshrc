@@ -28,20 +28,40 @@ make_prores() {
         return 1
     fi
 
-    # Assign the first argument to the variable 'f'
     local f="$1"
 
-    # Run the ffmpeg command using the variable
+    # 1. Get dimensions using ffprobe
+    # This grabs width and height in a 'W H' format
+    local dims=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "$f")
+    local width=$(echo $dims | cut -d'x' -f1)
+    local height=$(echo $dims | cut -d'x' -f2)
+
+    # 2. Determine Scale Logic
+    # We target 4K (3840) on the longest dimension
+    local scale_filter
+    if [ "$width" -ge "$height" ]; then
+        # Landscape: Width is 3840, Height is calculated to maintain ratio
+        scale_filter="scale=3840:-2:flags=lanczos"
+        echo "Detected Landscape orientation..."
+    else
+        # Vertical: Height is 3840, Width is calculated to maintain ratio
+        scale_filter="scale=-2:3840:flags=lanczos"
+        echo "Detected Vertical orientation..."
+    fi
+
+    # 3. Run FFmpeg
     ffmpeg -i "$f" \
         -map_metadata -1 \
-        -vf "scale=3840:2160:flags=lanczos" \
+        -vf "$scale_filter" \
         -pix_fmt uyvy422 \
         -c:v prores_videotoolbox \
         -profile:v 3 \
         -c:a pcm_s24le \
         -ac 2 \
         -ar 48000 \
-        "${f%.*}.mov"
+        "${f%.*}_4k_prores.mov"
+
+    echo "Done! Output saved as ${f%.*}_4k_prores.mov"
 }
 
 export PATH="/usr/local/sbin:$PATH"
