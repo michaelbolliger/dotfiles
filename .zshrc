@@ -1,6 +1,6 @@
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-alias bru="brew update; brew upgrade; brew autoremove; brew cleanup --prune=all"
+alias bru="brew update; brew upgrade --no-ask; brew autoremove; brew cleanup --prune=all"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
 alias cleardock="defaults write com.apple.dock persistent-apps -array; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
