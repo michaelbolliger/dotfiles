@@ -31,9 +31,9 @@ make -j$CORES install PREFIX="$PREFIX"
 rm -f "$PREFIX"/lib/*.dylib
 cd ..
 
-# 5. Build OpenSSL 4.0.0
-curl -LO https://github.com/openssl/openssl/releases/download/openssl-4.0.0/openssl-4.0.0.tar.gz
-tar -xzf openssl-4.0.0.tar.gz && cd openssl-4.0.0
+# 5. Build OpenSSL 4.0.1
+curl -LO https://github.com/openssl/openssl/releases/download/openssl-4.0.1/openssl-4.0.1.tar.gz
+tar -xzf openssl-4.0.1.tar.gz && cd openssl-4.0.1
 ./config no-shared --prefix="$PREFIX"
 make -j$CORES && make install_sw
 cd ..
