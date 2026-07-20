@@ -8,7 +8,7 @@ export PREFIX="$BUILD_DIR/local"
 export CORES=$(sysctl -n hw.ncpu)
 mkdir -p "$PREFIX"
 
-echo "--- Starting build for rsync 3.4.3 with file-flags ---"
+echo "--- Starting build for rsync 3.4.4 with file-flags ---"
 
 # 2. Build zstd 1.5.7
 curl -LO https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz
@@ -38,10 +38,10 @@ tar -xzf openssl-4.0.1.tar.gz && cd openssl-4.0.1
 make -j$CORES && make install_sw
 cd ..
 
-# 6. Download Rsync 3.4.3
-curl -LO https://download.samba.org/pub/rsync/src/rsync-3.4.3.tar.gz
-tar -xzf rsync-3.4.3.tar.gz
-cd rsync-3.4.3
+# 6. Download Rsync 3.4.4
+curl -LO https://download.samba.org/pub/rsync/src/rsync-3.4.4.tar.gz
+tar -xzf rsync-3.4.4.tar.gz
+cd rsync-3.4.4
 
 # 7. Configure and Compile
 export CFLAGS="-I$PREFIX/include -O2"
