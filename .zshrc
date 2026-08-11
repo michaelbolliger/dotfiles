@@ -1,6 +1,7 @@
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 alias bru="brew update; brew upgrade --no-ask; brew autoremove; brew cleanup --prune=all"
+alias ff="fastfetch"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
 alias cleardock="defaults write com.apple.dock persistent-apps -array; killall Dock"
 alias refresh="topgrade; brew cleanup; lpreset"
@@ -70,4 +71,9 @@ export PATH=/opt/homebrew/opt/curl/bin:$PATH
 export PATH="/opt/homebrew/opt/ffmpeg-full/bin:$PATH"
 
 eval "$(starship init zsh)"
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/michael/.lmstudio/bin"
+# End of LM Studio CLI section
 
