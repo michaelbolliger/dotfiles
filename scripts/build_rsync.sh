@@ -1,12 +1,23 @@
 #!/bin/bash
 set -e # Exit on error
 
-# Capture optional output path from the first argument
-OUTPUT_PATH="$1"
+# 1. Capture launch context and handle output path
+START_DIR="$(pwd)"
 
-# 1. Setup workspace
-mkdir -p ~/rsync-standalone-build && cd ~/rsync-standalone-build
-export BUILD_DIR=$(pwd)
+if [ -n "$1" ]; then
+    # Convert relative path to absolute path using starting directory
+    case "$1" in
+        /*) OUTPUT_PATH="$1" ;;
+        *)  OUTPUT_PATH="$START_DIR/$1" ;;
+    esac
+else
+    # Default: Place the compiled binary in the directory where the script was invoked
+    OUTPUT_PATH="$START_DIR/rsync"
+fi
+
+# 2. Setup workspace
+BUILD_DIR="$HOME/rsync-standalone-build"
+mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
 export PREFIX="$BUILD_DIR/local"
 # Get core count for macOS or Linux, fallback to 4
 export CORES=$(sysctl -n hw.ncpu 2>/dev/null || nproc 2>/dev/null || echo 4)
@@ -23,7 +34,7 @@ LZ4_TAG=$(get_latest_github_tag "lz4/lz4")
 XXHASH_TAG=$(get_latest_github_tag "Cyan4973/xxHash")
 OPENSSL_TAG=$(get_latest_github_tag "openssl/openssl")
 RSYNC_TAG=$(get_latest_github_tag "RsyncProject/rsync")
-RSYNC_VER=${RSYNC_TAG#v} # Strip 'v' prefix for the Samba download URL (e.g., v3.4.4 -> 3.4.4)
+RSYNC_VER=${RSYNC_TAG#v} # Strip 'v' prefix
 
 echo "ZSTD:    $ZSTD_TAG"
 echo "LZ4:     $LZ4_TAG"
@@ -32,50 +43,48 @@ echo "OPENSSL: $OPENSSL_TAG"
 echo "RSYNC:   $RSYNC_VER"
 echo "------------------------------------"
 
-# 2. Build zstd
+# 3. Build zstd
 echo "Building zstd..."
 mkdir -p zstd-src && cd zstd-src
 curl -LO "https://github.com/facebook/zstd/archive/refs/tags/${ZSTD_TAG}.tar.gz"
 tar -xzf "${ZSTD_TAG}.tar.gz" --strip-components=1
 make -j$CORES install PREFIX="$PREFIX"
 rm -f "$PREFIX"/lib/*.dylib "$PREFIX"/lib/*.so* 2>/dev/null || true
-cd ..
+cd "$BUILD_DIR"
 
-# 3. Build lz4
+# 4. Build lz4
 echo "Building lz4..."
 mkdir -p lz4-src && cd lz4-src
 curl -LO "https://github.com/lz4/lz4/archive/refs/tags/${LZ4_TAG}.tar.gz"
 tar -xzf "${LZ4_TAG}.tar.gz" --strip-components=1
 make -j$CORES install PREFIX="$PREFIX"
 rm -f "$PREFIX"/lib/*.dylib "$PREFIX"/lib/*.so* 2>/dev/null || true
-cd ..
+cd "$BUILD_DIR"
 
-# 4. Build xxHash
+# 5. Build xxHash
 echo "Building xxHash..."
 mkdir -p xxhash-src && cd xxhash-src
 curl -LO "https://github.com/Cyan4973/xxHash/archive/refs/tags/${XXHASH_TAG}.tar.gz"
 tar -xzf "${XXHASH_TAG}.tar.gz" --strip-components=1
 make -j$CORES install PREFIX="$PREFIX"
 rm -f "$PREFIX"/lib/*.dylib "$PREFIX"/lib/*.so* 2>/dev/null || true
-cd ..
+cd "$BUILD_DIR"
 
-# 5. Build OpenSSL
+# 6. Build OpenSSL
 echo "Building OpenSSL..."
 mkdir -p openssl-src && cd openssl-src
 curl -LO "https://github.com/openssl/openssl/archive/refs/tags/${OPENSSL_TAG}.tar.gz"
 tar -xzf "${OPENSSL_TAG}.tar.gz" --strip-components=1
 ./config no-shared --prefix="$PREFIX"
 make -j$CORES && make install_sw
-cd ..
+cd "$BUILD_DIR"
 
-# 6. Download Rsync
+# 7. Download & Build Rsync
 echo "Building Rsync..."
 mkdir -p rsync-src && cd rsync-src
-# We fetch from samba.org rather than Github because it includes pre-generated configure scripts
 curl -LO "https://download.samba.org/pub/rsync/src/rsync-${RSYNC_VER}.tar.gz"
 tar -xzf "rsync-${RSYNC_VER}.tar.gz" --strip-components=1
 
-# 7. Configure and Compile
 export CFLAGS="-I$PREFIX/include -O2"
 export LDFLAGS="-L$PREFIX/lib"
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
@@ -89,14 +98,15 @@ export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 make -j$CORES
 
 echo "--- Build Complete! ---"
-echo "Compiled binary location: $(pwd)/rsync"
 ./rsync --version | grep -E "capabilities|file-flags"
 
-# 8. Handle Output Path
-if [ -n "$OUTPUT_PATH" ]; then
-    echo "--- Copying binary to destination ---"
-    # Ensure the parent directory of the target path exists
-    mkdir -p "$(dirname "$OUTPUT_PATH")"
-    cp ./rsync "$OUTPUT_PATH"
-    echo "Successfully copied rsync to: $OUTPUT_PATH"
-fi
+# 8. Output handling & Cleanup
+echo "--- Copying binary to destination ---"
+mkdir -p "$(dirname "$OUTPUT_PATH")"
+cp ./rsync "$OUTPUT_PATH"
+echo "Successfully installed rsync to: $OUTPUT_PATH"
+
+echo "--- Cleaning up build workspace ---"
+cd "$START_DIR"
+rm -rf "$BUILD_DIR"
+echo "Cleanup finished. Done!"
