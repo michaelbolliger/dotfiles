@@ -4,6 +4,7 @@ alias bru="brew update; brew upgrade --greedy --no-ask; brew autoremove; brew cl
 alias ff="fastfetch"
 alias lpreset="find 2>/dev/null /private/var/folders/ -type d -name com.apple.dock.launchpad -exec rm -rf {} +; killall Dock"
 alias cleardock="defaults write com.apple.dock persistent-apps -array; killall Dock"
+alias clearcache="rm -rf ~/Library/Caches/*"
 alias refresh="topgrade; brew cleanup; lpreset"
 alias arestart="sudo fdesetup authrestart -delayminutes -1"
 alias pdfex="exiftool -Title="" -Creator="" -Producer="" -Author="""
