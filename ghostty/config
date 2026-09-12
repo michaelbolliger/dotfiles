@@ -6,3 +6,4 @@ cursor-style-blink = false
 #window-decoration = none
 window-height = 30
 window-width = 120
+shell-integration = detect
