@@ -138,7 +138,7 @@ export LIBS="-lunistring"
 make -j$CORES
 
 echo "--- Build Complete! ---"
-./rsync --version | grep -E "capabilities|file-flags"
+./rsync --version
 
 # 8. Output handling & Cleanup
 echo "--- Copying binary to destination ---"
