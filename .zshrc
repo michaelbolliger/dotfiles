@@ -15,7 +15,7 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias fitbackup="gtar -c --exclude-tag-all=.tarignore --exclude='.DS_Store' -vJf /Volumes/storage/Fitting\ In\ Project\ Backup/"$(date '+%y%m%d-%H%M')_fitting_in_avid_project_backup.tar.xz" /Volumes/FIT_Edit1/01\ PROJECT/Avid\ Projekt/FITTING\ IN"
 alias bu="rsync -avhiW --inplace --progress --stats --delete --delete-excluded --exclude={'.DS_Store','.*/'}"
 alias buc="rsync -avhiW --cc=xxh3 --inplace --progress --stats --delete --delete-excluded --exclude={'.DS_Store','.*/'}"
-alias bup="rsync -avhiW --progress --stats --delete --delete-excluded --exclude={'.DS_Store','.*/','*Proxy*','*Proxies*','*Previews*','*Auto-Save*','*.xmp','*.mxfindex','*.pek','*.prmi'}"
+alias bup="rsync -avhiW --inplace --progress --stats --delete --delete-excluded --exclude={'.DS_Store','.*/','*Proxy*','*Proxies*','*Previews*','*Auto-Save*','*.xmp','*.mxfindex','*.pek','*.prmi'}"
 alias resetuser="echo '== change permissions of user $(id -u) (directory ~) to 700 ==';chmod -R 700 ~ 2>/dev/null;diskutil resetUserPermissions / $(id -u)"
 alias cleands="find ~ -name ".DS_Store" -type f -delete 2>/dev/null"
 
